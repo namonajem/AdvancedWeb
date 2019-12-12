@@ -1,0 +1,15 @@
+[Unit]
+Description="uwsgi server"
+
+After=network.target
+
+
+[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=/home/40313888/release/
+Enviroment=FLASK_ENV=release
+ExecStart=/home/40313888/release/bin/uwsgi --ini /home/40313888/release/app.ini
+
+[Install]
+WantedBy=multi-user.target
